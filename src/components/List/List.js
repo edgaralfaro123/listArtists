@@ -3,11 +3,9 @@ import { Text, View,Linking,Image ,TouchableOpacity,StyleSheet} from 'react-nati
 import { colors } from '../../helpers/constants';
 import { metrics } from '../../helpers/Metrics';
 
-const RenderItem = ({ item , online }) => {
-
+const RenderItem = ({ item }) => {
 
     let url =item.url;
-
     const tamanoImagen = {
         small:()=> 0.07,
         medium:()=>  0.09 ,
@@ -30,7 +28,7 @@ const RenderItem = ({ item , online }) => {
                             Linking.openURL(url)
                         }
                     >
-                       <Text style={online ? styles.textdos : {color:'red'}} numberOfLines={1}>
+                       <Text style={ styles.textdos } numberOfLines={1}>
                             Url:
                             {' '}
                             {item.url}
