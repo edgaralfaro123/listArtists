@@ -2,16 +2,15 @@
 
 import * as inputsTypes from '../types/inputsTypes'
 
-const initialState = {
-    isSelected: false
-}
 
-export default function componentsReducer (state = initialState, action) {
+export default function componentsReducer (state = { online:false , list:[] }, action) {
+    console.log("action.payload",action.payload)
     switch (action.type) {
-        case inputsTypes.CHANGE_VALUE:
+        
+        case inputsTypes.SAVE_TOP_ARTISTS:
             return {
                 ...state,
-                isSelected: action.payload
+                state: action.payload
             };
         default:
             return state;

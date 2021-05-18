@@ -1,15 +1,11 @@
-import { nameOfInputs } from '../../helpers/constants';
+/* import { nameOfInputs } from '../../helpers/constants'; */
 import * as inputsTypes from '../types/inputsTypes'
 
-export function changeValue (name, value) {
-    switch (name) {
-        case nameOfInputs.NAME_CHECKBOX:
-            return {
-                type: inputsTypes.CHANGE_VALUE,
-                payload: value,
-            };
+export function changeValue ( value) {
+    
+    return {
+        type: inputsTypes.SAVE_TOP_ARTISTS,
+        payload: value,
+    };
 
-        default:
-            break;
-    }
 }

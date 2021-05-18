@@ -1,1 +1,1 @@
-export const CHANGE_VALUE = 'CHANGE_VALUE'
+export const SAVE_TOP_ARTISTS = 'SAVE_TOP_ARTISTS'
