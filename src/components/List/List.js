@@ -4,8 +4,13 @@ import { colors } from '../../helpers/constants';
 import { metrics } from '../../helpers/Metrics';
 
 const RenderItem = ({ item }) => {
-
+    /*
+        Componente que renderiza las card
+        Recibe como parametro un objeto
+    */
     let url =item.url;
+
+    //Validamos la dimension de la imagen
     const tamanoImagen = {
         small:()=> 0.07,
         medium:()=>  0.09 ,

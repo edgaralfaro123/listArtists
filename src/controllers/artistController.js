@@ -1,5 +1,10 @@
 import Artist from '../models/artistModel.js'
 export async function getArtists () {
+    /*
+        Realizamos la promesa 
+        Instanciamos el objeto Artists
+        Devolvemos los valores setiados
+    */
         return new Promise((resolve, reject) => {
             const apiPath='http://ws.audioscrobbler.com/2.0/?method=geo.gettopartists&country=spain&api_key=829751643419a7128b7ada50de590067&format=json';
             fetch(apiPath)

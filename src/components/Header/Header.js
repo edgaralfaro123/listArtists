@@ -3,6 +3,10 @@ import { Text, View, StyleSheet} from 'react-native';
 import { colors } from '../../helpers/constants';
 
 function Header (props) {
+    /*
+        Componente que renderiza el header
+        recibe como parametro online el cual definira si tiene o no internet
+    */
     const {online = false } = props
     return(
         <View style={styles.header}>

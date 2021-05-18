@@ -10,6 +10,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { changeValue } from '../../store/actions/componentsActions';
 
 const List = (props) => {
+    /*
+        Componente padre
+        Renderiza los componentes Header,Loading y List
+    */
     const dispatch = useDispatch()
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(false);

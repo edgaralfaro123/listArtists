@@ -1,3 +1,6 @@
+/*
+    Colores usados en la aplicación
+*/
 export const colors = {
     greenTwo: '#75B193',
     primary: "#374E6F",

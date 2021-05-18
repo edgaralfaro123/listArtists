@@ -4,7 +4,9 @@ import { Text, View,Image ,StyleSheet} from 'react-native';
 import { colors } from '../../helpers/constants';
 import { metrics } from '../../helpers/Metrics';
 function Loading () {
-
+    /*
+        Renderiza el loading
+    */
     return(
         <View style={styles.card}>
             <Text style={styles.text}>Cargando...</Text>
