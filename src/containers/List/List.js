@@ -27,6 +27,7 @@ const List = (props) => {
     const obtenerArtistas = async () => {
         setLoading(true);
         const result =  await getArtists();
+        
         if(result.length>0){
             dispatch(changeValue({ online: true,list:result}))
             setenlinea(true);
@@ -37,7 +38,6 @@ const List = (props) => {
             setenlinea(false);
             setData(lists);
         }
-        
         setLoading(false);
         
     }
