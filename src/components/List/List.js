@@ -3,7 +3,7 @@ import { Text, View,Linking,Image ,TouchableOpacity,StyleSheet} from 'react-nati
 import { colors } from '../../helpers/constants';
 import { metrics } from '../../helpers/Metrics';
 
-const RenderItem = ({ item  }) => {
+const RenderItem = ({ item , online }) => {
 
 
     let url =item.url;
@@ -30,7 +30,7 @@ const RenderItem = ({ item  }) => {
                             Linking.openURL(url)
                         }
                     >
-                       <Text style={styles.textdos} numberOfLines={1}>
+                       <Text style={online ? styles.textdos : {color:'red'}} numberOfLines={1}>
                             Url:
                             {' '}
                             {item.url}
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
     },
     textdos:{
         fontWeight: 'bold',
-        color: colors.greenPrimary
+        color: colors.greenPrimary 
     },
     images:{
         flexDirection:'row',

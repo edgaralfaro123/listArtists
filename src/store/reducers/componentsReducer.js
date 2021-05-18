@@ -4,7 +4,6 @@ import * as inputsTypes from '../types/inputsTypes'
 
 
 export default function componentsReducer (state = { online:false , list:[] }, action) {
-    console.log("action.payload",action.payload)
     switch (action.type) {
         
         case inputsTypes.SAVE_TOP_ARTISTS:
