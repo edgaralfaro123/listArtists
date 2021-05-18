@@ -23,8 +23,8 @@ export async function getArtists () {
                     return resolve(artistas)
                 },
                 (error) => {
-                    reject([]);
-                    console.log(error);
+                    resolve([]);
+                    console.log("error generado ",error);
                 }
                 )
             }

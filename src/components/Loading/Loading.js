@@ -1,13 +1,13 @@
 
 import React from 'react';
-import { Text, View,Image } from 'react-native';
+import { Text, View,Image ,StyleSheet} from 'react-native';
 import { colors } from '../../helpers/constants';
 import { metrics } from '../../helpers/Metrics';
 function Loading () {
 
     return(
-        <View style={{height: metrics.screenHeight ,alignItems:'center',justifyContent:'center'}}>
-            <Text style={{color:colors.blueTwo,fontSize: 30}}>Cargando...</Text>
+        <View style={styles.card}>
+            <Text style={styles.text}>Cargando...</Text>
             <Image
                 style = {{
                     width: metrics.screenWidth * 0.1,
@@ -21,4 +21,17 @@ function Loading () {
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+    card: {
+        height: metrics.screenHeight ,
+        alignItems:'center',
+        justifyContent:'center'
+    },
+    text:{
+        color:colors.blueTwo,
+        fontSize: 30
+    }
+    
+});
 export default Loading;

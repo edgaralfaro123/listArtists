@@ -1,17 +1,20 @@
 import React, { useState,useEffect} from 'react';
-import { Text, View,Dimensions, StyleSheet, StatusBar,Linking, FlatList,Image ,TouchableOpacity} from 'react-native';
+import {  View, StyleSheet, FlatList} from 'react-native';
 import { colors } from '../../helpers/constants';
-import { metrics } from '../../helpers/Metrics';
-import Artist from '../../models/artistModel.js'
+
 import {getArtists} from '../../controllers/artistController';
 import Header from '../../components/Header/Header'
 import Loading from '../../components/Loading/Loading'
 import RenderItem from '../../components/List/List'
+import { useSelector, useDispatch } from 'react-redux';
+import { changeValue } from '../../store/actions/componentsActions';
 
-const List = () => {
+const List = (props) => {
+    const dispatch = useDispatch()
     const [data, setData] = useState([])
-    const [loading, setLoading] = useState(false)
-
+    const [loading, setLoading] = useState(false);
+    const [enlinea, setenlinea] = useState(false)
+    const componenteprueba = useSelector(state => state.componentsReducer)
 
     useEffect(() => {
         obtenerArtistas();
@@ -20,18 +23,29 @@ const List = () => {
     const obtenerArtistas = async () => {
         setLoading(true);
         const result =  await getArtists();
-        setData(result);
+        if(result.length>0){
+            dispatch(changeValue({ online: true,list:result}))
+            setenlinea(true);
+            setData(result);
+        }else{
+            let lists = componenteprueba.state.list == undefined ? [] : componenteprueba.state.list;
+            dispatch(changeValue({ online: false,list: lists }))
+            setenlinea(false);
+            setData(lists);
+        }
+        
         setLoading(false);
+        
     }
 
     return (
         <>
-            <View style={{backgroundColor:colors.lightBlue}}>
-                <Header/>
+            <View style={styles.background}>
+                <Header online = {enlinea}/>
                 { loading ? 
                     <Loading/>
                 : 
-                    <View style={{marginTop: 20 }}>
+                    <View style={styles.scroll}>
                     <FlatList
                         data={data}
                         renderItem={({item})=> (
@@ -50,5 +64,13 @@ const List = () => {
     );
 
 }
+const styles = StyleSheet.create({
+    background: {
+        backgroundColor:colors.lightBlue
+    },
+    scroll:{
+        marginTop: 20 
+    }
+});
 
 export default List;

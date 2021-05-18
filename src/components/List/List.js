@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View,Linking,Image ,TouchableOpacity} from 'react-native';
+import { Text, View,Linking,Image ,TouchableOpacity,StyleSheet} from 'react-native';
 import { colors } from '../../helpers/constants';
 import { metrics } from '../../helpers/Metrics';
 
@@ -19,26 +19,26 @@ const RenderItem = ({ item  }) => {
     return (
     <>
         
-            <View style={{backgroundColor:colors.blueTwo,padding:20,marginLeft:20,marginRight:20,marginTop:5,marginBottom:5, flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 20, paddingVertical: 20, borderRadius: 10 }}>
-                <View style={{ flexDirection: 'column',flex:1}}> 
-                    <Text style={{fontWeight: 'bold',color:colors.lightBlue}} numberOfLines={1}>Name: {item.name}</Text>   
-                    <Text style={{fontWeight: 'bold',color:colors.lightBlue}} numberOfLines={1}>Listeners: {item.listeners}</Text>            
-                    <Text style={{fontWeight: 'bold',color:colors.lightBlue}} numberOfLines={1}>Mbid: {item.mbid}</Text>            
+            <View style={styles.card}>
+                <View style={styles.cardbody}> 
+                    <Text style={styles.textouno} numberOfLines={1}>Name: {item.name}</Text>   
+                    <Text style={styles.textouno} numberOfLines={1}>Listeners: {item.listeners}</Text>            
+                    <Text style={styles.textouno} numberOfLines={1}>Mbid: {item.mbid}</Text>            
                    
                     <TouchableOpacity
                         onPress={() =>
                             Linking.openURL(url)
                         }
                     >
-                       <Text style={{fontWeight: 'bold',color: colors.greenPrimary}} numberOfLines={1}>
+                       <Text style={styles.textdos} numberOfLines={1}>
                             Url:
                             {' '}
                             {item.url}
                         </Text>
                     </TouchableOpacity>
                    
-                    <Text style={{fontWeight: 'bold',color:colors.lightBlue}} numberOfLines={1}>Streamable: {item.streamable}</Text>                     
-                    <View style={{flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
+                    <Text style={styles.textouno} numberOfLines={1}>Streamable: {item.streamable}</Text>                     
+                    <View style={styles.images}>
                     {
                         (item.image.length > 0 ,
                             item.image.map((imagen,i)=> {
@@ -68,5 +68,39 @@ const RenderItem = ({ item  }) => {
     </>
     )
 }
+const styles = StyleSheet.create({
+    card: {
+        backgroundColor:colors.blueTwo,
+        padding:20,
+        marginLeft:20,
+        marginRight:20,
+        marginTop:5,
+        marginBottom:5,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        paddingHorizontal: 20,
+        paddingVertical: 20,
+        borderRadius: 10 
+    },
+    cardbody:{
+        flexDirection: 'column',
+        flex:1
+    },
+    textouno:{
+        fontWeight: 'bold',
+        color:colors.lightBlue
+    },
+    textdos:{
+        fontWeight: 'bold',
+        color: colors.greenPrimary
+    },
+    images:{
+        flexDirection:'row',
+        justifyContent:'center',
+        alignItems:'center'
+    }
+
+    
+});
 
 export default RenderItem;
