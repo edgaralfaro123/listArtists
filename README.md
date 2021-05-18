@@ -1,17 +1,17 @@
 # listArtists
-###Primeros pasos
+### Primeros pasos
 
-####Instalar dependencias
+#### Instalar dependencias
 
 $ npm install
 
-####Iniciar proyecto
+#### Iniciar proyecto
 
 Para iniciar el proyecto ejecutar.
 
 $ npm run android
 
-####Estructura del proyecto
+#### Estructura del proyecto
 
 Components Esta carpeta contiene el componentes.
 
