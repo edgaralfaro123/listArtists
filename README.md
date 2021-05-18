@@ -24,3 +24,7 @@ Helpers Esta carpeta contiene las constantes.
 Models Esta carpeta contiene el modelo de datos.
 
 Store Esta carpeta contiene el manejo de redux.
+
+### Caracteristicas
+La aplicación funciona online y offline
+
